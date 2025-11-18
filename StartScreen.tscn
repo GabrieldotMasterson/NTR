@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tileset/background_tile.png" type="Texture" id=1]
+
+[node name="StartScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="bg" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_right = 1900.0
+margin_bottom = 1060.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 1060.0
+
+[node name="BtnPlay" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 20.0
+text = "JOGAR"
+
+[node name="BtnCred" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 1920.0
+margin_bottom = 44.0
+text = "CRÉDITOS"
+
+[node name="BtnQuit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 1920.0
+margin_bottom = 68.0
+text = "SAIR"
