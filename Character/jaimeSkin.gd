@@ -23,7 +23,7 @@ func play(animation: String) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if not is_zero_approx(velocity.x):
-		scale.x = sign(velocity.x) * 0.25
+		scale.x = sign(velocity.x) * 0.5
 
 	var is_jumping = velocity.y < 0 and not owner.is_on_floor()
 	if owner.is_on_floor():

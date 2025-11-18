@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Character/jaimeSkin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Character/Character.gd" type="Script" id=2]
+[ext_resource path="res://Character/jaimeSkin.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 33.5, 46.5 )
+
+[node name="Character" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 0 )
+shape = SubResource( 1 )
+
+[node name="JerrySkin" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4, -10 )
+script = ExtResource( 3 )
