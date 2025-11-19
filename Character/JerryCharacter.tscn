@@ -4,7 +4,7 @@
 [ext_resource path="res://Character/Character.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 33.5, 46.5 )
+extents = Vector2( 41.25, 63.75 )
 
 [node name="Character" type="KinematicBody2D"]
 collision_layer = 2
@@ -16,5 +16,11 @@ position = Vector2( 1, -1 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 0 )
+position = Vector2( -8, 18 )
 shape = SubResource( 1 )
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+
+[connection signal="hurt" from="." to="JerrySkin" method="_on_Character_hurt"]
+[connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
+[connection signal="timeout" from="InvulnerabilityTimer" to="JerrySkin" method="_on_InvulnerabilityTimer_timeout"]

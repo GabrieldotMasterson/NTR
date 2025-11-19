@@ -1,23 +1,49 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Players/james/james_jump.png" type="Texture" id=1]
 [ext_resource path="res://Character/CharacterSkin.gd" type="Script" id=2]
 [ext_resource path="res://Players/james/james_run.png" type="Texture" id=3]
+[ext_resource path="res://Players/james/jamesJ.png" type="Texture" id=4]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 224, 224 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 224, 0, 224, 224 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 448, 0, 224, 224 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 672, 0, 224, 224 )
+
+[sub_resource type="AtlasTexture" id=30]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 896, 0, 224, 224 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=31]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1120, 0, 224, 224 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=32]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1344, 0, 224, 224 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 224, 224 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
@@ -126,9 +152,14 @@ region = Rect2( 4480, 0, 224, 224 )
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 33 ) ],
+"loop": false,
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
@@ -137,7 +168,7 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[node name="JamesSkin" type="Node2D"]
+[node name="JerrySkin" type="Node2D"]
 scale = Vector2( 0.5, 0.5 )
 z_index = 2
 script = ExtResource( 2 )
@@ -145,4 +176,4 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 4 )
 frames = SubResource( 25 )
-animation = "idle"
+animation = "jump"

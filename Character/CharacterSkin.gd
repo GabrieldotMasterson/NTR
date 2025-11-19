@@ -3,7 +3,7 @@ extends Node2D
 onready var animation_player := $AnimatedSprite
 
 var start_scale := 0.5
-
+var hurt = false
 var velocity := Vector2.ZERO
 
 func _ready() -> void:
@@ -26,9 +26,19 @@ func _physics_process(_delta: float) -> void:
 		scale.x = sign(velocity.x) * 0.25
 
 	var is_jumping = velocity.y < 0 and not owner.is_on_floor()
-	if owner.is_on_floor():
-		if not is_zero_approx(velocity.x):
-			play("run")
-		else:
-			play("idle")
+	if not hurt:
+		if is_jumping:
+			play("jump")
+		elif owner.is_on_floor():
+			if not is_zero_approx(velocity.x):
+				play("run")
+			else:
+				play("idle")
 
+func _on_Character_hurt():
+	hurt = true
+	play("hurt")
+
+
+func _on_AnimatedSprite_animation_finished():
+	hurt = false
